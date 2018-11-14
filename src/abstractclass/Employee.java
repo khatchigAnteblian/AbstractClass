@@ -25,7 +25,7 @@ public abstract class Employee {
     }
     
     public abstract double pay();
-    public abstract void deductSickDay();
+    public abstract void deductSickDay(float sickDaysTaken);
     public abstract void resetSickDay();
     public abstract void printPayStub();
 }
