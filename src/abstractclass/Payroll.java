@@ -5,6 +5,11 @@
  */
 package abstractclass;
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  *
  * @author 345983704
@@ -40,5 +45,14 @@ public class Payroll {
         }
     }
     
-    
+    // Write employee information to file
+    public void saveStaffList(String fileName) {
+        for(Employee e : staffList) {
+            try(BufferedWriter br = new BufferedWriter(new FileWriter(fileName))) {
+                br.write(e.toString());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 }

@@ -5,7 +5,9 @@
         <group>
             <file>file:/H:/NetBeansProjects/AbstractClass/src/abstractclass/AbstractClass.java</file>
             <file>file:/H:/NetBeansProjects/AbstractClass/src/abstractclass/FullTimeStaff.java</file>
+            <file>file:/H:/NetBeansProjects/AbstractClass/src/abstractclass/Payroll.java</file>
             <file>file:/H:/NetBeansProjects/AbstractClass/src/abstractclass/Employee.java</file>
+            <file>file:/H:/NetBeansProjects/AbstractClass/src/abstractclass/PartTimeStaff.java</file>
         </group>
     </open-files>
 </project-private>
