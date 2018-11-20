@@ -24,8 +24,16 @@ public abstract class Employee {
         return "EmployeeNum: " + this.employeeNumber + "\nName: " + this.firstName + " " + this.lastName;
     }
     
+    // Setting up abstract methods for subclasses
     public abstract double pay();
     public abstract void deductSickDay(float sickDaysTaken);
     public abstract void resetSickDay();
     public abstract void printPayStub();
+
+    /**
+     * @return the employeeNumber
+     */
+    public String getEmployeeNumber() {
+        return employeeNumber;
+    }
 }

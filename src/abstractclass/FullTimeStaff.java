@@ -15,17 +15,21 @@ public class FullTimeStaff extends Employee {
     private float sickDaysLeft;
     private String title;
     
-    public FullTimeStaff(String emNum, String first, String last, double salary, float sickLeft) {
+    public FullTimeStaff(String emNum, String first, String last, double salary, float sickLeft, String title) {
         super(emNum, first, last);
         this.yearlySalary = salary;
         this.sickDaysLeft = sickLeft;
+        this.title = title;
     }
     
 
+    // Return monthly salary
     public double pay() {
         return this.yearlySalary / 12;
     }
 
+    // Deduct sick days from total if there's still sick days left
+    // Print a warning message otherwise
     public void deductSickDay(float sickDaysTaken) {
         if (this.sickDaysLeft - sickDaysTaken < 0) {
             System.out.println("Not enough sick days left! Only " + this.sickDaysLeft + " days remaining!");
@@ -34,14 +38,18 @@ public class FullTimeStaff extends Employee {
         }
     }
 
+    // Reset sick days left to total
     public void resetSickDay() {
         this.sickDaysLeft = this.yearlySickDay;
     }
 
+    // Print amount earned and sick days left for the month
     public void printPayStub() {
-        System.out.println(this.pay());
+        System.out.println("Amount earned this month: $" + this.pay());
+        System.out.println("Sick days left: " + this.sickDaysLeft);
     }
     
+    // Return FullTimeStaff object with greater sickDaysLeft
     public FullTimeStaff compareToSickDay(FullTimeStaff other) {
         return this.sickDaysLeft > other.sickDaysLeft ? this : other;
     }
