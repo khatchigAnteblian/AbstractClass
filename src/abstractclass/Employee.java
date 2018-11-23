@@ -36,4 +36,18 @@ public abstract class Employee {
     public String getEmployeeNumber() {
         return employeeNumber;
     }
+
+    /**
+     * @return the firstName
+     */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * @return the lastName
+     */
+    public String getLastName() {
+        return lastName;
+    }
 }

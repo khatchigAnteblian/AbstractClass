@@ -9,6 +9,9 @@ package abstractclass;
  *
  * @author 345983704
  */
+
+import java.util.ArrayList;
+
 public class AbstractClass {
 
     /**
@@ -19,7 +22,12 @@ public class AbstractClass {
         PartTimeStaff b = new PartTimeStaff("134689519", "John", "Doe", 70.0f, 20.0, "Cashier");
         Payroll pr = new Payroll(a, b);
         pr.enterSickDay("134689519", 2);
-        pr.printAllPayStubs();
+        //pr.printAllPayStubs();
+        pr.saveStaffList("StaffList.txt");
+        ArrayList<Employee> employees = pr.loadStaffList("StaffList.txt");
+        System.out.println(employees.get(0).toString());
+        //ArrayList<ArrayList<String>> data = pr.loadStaffList("StaffList.txt");
+        //System.out.println(data.get(1));
     }
     
 }

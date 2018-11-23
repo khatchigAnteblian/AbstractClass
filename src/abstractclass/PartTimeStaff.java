@@ -13,7 +13,7 @@ public class PartTimeStaff extends Employee {
     private float numHoursAssigned;
     private double hourlyRate;
     private float sickDaysTaken = 0;
-    private String title;
+    public String title;
     
     public PartTimeStaff(String eNum, String first, String last, float numHours, double hRate, String title) {
         super(eNum, first, last);
@@ -51,5 +51,19 @@ public class PartTimeStaff extends Employee {
     
     public String toString() {
         return super.toString() + "\nTitle: " + this.title;
+    }
+
+    /**
+     * @return the hoursAssigned
+     */
+    public float getNumHoursAssigned() {
+        return numHoursAssigned;
+    }
+
+    /**
+     * @return the hourlyRate
+     */
+    public double getHourlyRate() {
+        return hourlyRate;
     }
 }

@@ -13,7 +13,7 @@ public class FullTimeStaff extends Employee {
     public static final int yearlySickDay = 20;
     private double yearlySalary;
     private float sickDaysLeft;
-    private String title;
+    public String title;
     
     public FullTimeStaff(String emNum, String first, String last, double salary, float sickLeft, String title) {
         super(emNum, first, last);
@@ -56,5 +56,12 @@ public class FullTimeStaff extends Employee {
     
     public String toString() {
         return super.toString() + "\nTitle: " + this.title;
+    }
+
+    /**
+     * @return the yearlySalary
+     */
+    public double getYearlySalary() {
+        return yearlySalary;
     }
 }
