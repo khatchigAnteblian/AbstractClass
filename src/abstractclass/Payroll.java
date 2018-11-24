@@ -124,7 +124,7 @@ public class Payroll {
         // Go through employees and add to total if it's a FullTimeStaff
         for (Employee e : staffList) {
             if (e instanceof FullTimeStaff) {
-                total += e.getYearlySalary();
+                total += ((FullTimeStaff)e).getYearlySalary();
                 numOfEmployees++;
             }
         }
@@ -137,7 +137,7 @@ public class Payroll {
        // Go through employees and add to total if it's a PartTimeStaff
        for (Employee e : staffList) {
            if (e instanceof PartTimeStaff) {
-               total += e.getHourlyRate();
+               total += ((PartTimeStaff)e).getHourlyRate();
                numOfEmployees++;
            }
        }
@@ -146,45 +146,45 @@ public class Payroll {
 
     public FullTimeStaff mostAbsentFullTime() {
         // Initialize variable with first element of staffList so we have something to compare to
-        Employee mostAbsent = staffList[0];
+        Employee mostAbsent = staffList.get(0);
         // Go through employees and update mostAbsent if sick days left is smaller
         for (Employee e : staffList) {
             if (e instanceof FullTimeStaff) {
                 // In case first element isn't FullTimeStaff, substitute with first FullTimeStaff encountered
                 // Otherwise, update if current iteration has less sick days left
                 if (mostAbsent instanceof PartTimeStaff) {
-                    mostAbstent = e;
-                } else if (e.getSickDaysLeft() <= mostAbsent.getSickDaysLeft()) {
+                    mostAbsent = e;
+                } else if (((FullTimeStaff)e).getSickDaysLeft() <= ((FullTimeStaff)mostAbsent).getSickDaysLeft()) {
                     mostAbsent = e;
                 }
             }
         }
-        return mostAbsent;
+        return (FullTimeStaff)mostAbsent;
     }
 
     public PartTimeStaff mostAbsentPartTime() {
         // Initialize variable with first element of staffList so we have something to compare to
-        Employee mostAbsent = staffList[0];
+        Employee mostAbsent = staffList.get(0);
         // Go through employees and update mostAbsent if sick days taken is greater
         for (Employee e : staffList) {
             if (e instanceof PartTimeStaff) {
                 // In case first element isn't PartTimeStaff, substitute with first PartTimeStaff encountered
                 // Otherwise, update if current iteration has more sick days taken
                 if (mostAbsent instanceof FullTimeStaff) {
-                    mostAbstent = e;
-                } else if (e.getSickDaysTaken() >= mostAbsent.getSickDaysTaken()) {
+                    mostAbsent = e;
+                } else if (((PartTimeStaff)e).getSickDaysTaken() >= ((PartTimeStaff)mostAbsent).getSickDaysTaken()) {
                     mostAbsent = e;
                 }
             }
         }
-        return mostAbsent;
+        return (PartTimeStaff)mostAbsent;
     }
 
     public void yearlySickDayReset() {
         // Go through employees and reset FullTimeStaff sick days
         for (Employee e : staffList) {
             if (e instanceof FullTimeStaff) {
-                e.resetSickDay();
+                ((FullTimeStaff)e).resetSickDay();
             }
         }
     }
@@ -193,7 +193,7 @@ public class Payroll {
         // Go through employees and reset PartTimeStaff sick days
         for (Employee e : staffList) {
             if (e instanceof PartTimeStaff) {
-                e.resetSickDay(); 
+                ((PartTimeStaff)e).resetSickDay(); 
             }
         }
     }
