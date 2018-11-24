@@ -66,4 +66,11 @@ public class PartTimeStaff extends Employee {
     public double getHourlyRate() {
         return hourlyRate;
     }
+
+    /**
+     * @return the sickDaysTaken
+     */
+    public float getSickDaysTaken() {
+        return sickDaysTaken;
+    }
 }

@@ -64,4 +64,11 @@ public class FullTimeStaff extends Employee {
     public double getYearlySalary() {
         return yearlySalary;
     }
+
+    /**
+     * @return the sickDaysLeft
+     */
+    public float getSickDaysLeft() {
+        return sickDaysLeft;
+    }
 }
