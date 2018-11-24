@@ -1,0 +1,12 @@
+Employee Type: Full-Time Staff
+Salary: 81460.00
+Title: Manager
+Employee Number: 1457937896
+Name: John Doe
+
+Employee Type: Part-Time Staff
+Hours Assigned: 25.5
+Hourly Rate: 18.25
+Title: Cashier
+Employee Number: 7523967348
+Name: Jane Doe
