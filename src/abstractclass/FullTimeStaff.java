@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package abstractclass;
+//package abstractclass;
 
 /**
  *
@@ -45,8 +45,11 @@ public class FullTimeStaff extends Employee {
 
     // Print amount earned and sick days left for the month
     public void printPayStub() {
+        System.out.println("Employee Name: " + this.getFirstName() + " "  + this.getLastName());
+        System.out.println("Employee Type: Full-Time Staff");
         System.out.println("Amount earned this month: $" + this.pay());
         System.out.println("Sick days left: " + this.sickDaysLeft);
+        System.out.println();
     }
     
     // Return FullTimeStaff object with greater sickDaysLeft
@@ -55,7 +58,7 @@ public class FullTimeStaff extends Employee {
     }
     
     public String toString() {
-        return super.toString() + "\nTitle: " + this.title;
+        return super.toString() + "\nTitle: " + this.title + "\n";
     }
 
     /**

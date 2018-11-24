@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package abstractclass;
+//package abstractclass;
 
 /**
  *
@@ -40,8 +40,11 @@ public class PartTimeStaff extends Employee {
     
     // Print hours worked and amount earned in those hours
     public void printPayStub() {
+        System.out.println("Employee Name: " + this.getFirstName() + " " + this.getLastName());
+        System.out.println("Employee Type: Part-Time Staff");
         System.out.println("Hours worked: " + (this.numHoursAssigned - (this.sickDaysTaken * 8)));
         System.out.println("Amount earned this month: $" + this.pay());
+        System.out.println();
     }
     
     // Return PartTimeStaff object with greater sickDaysTaken
@@ -50,7 +53,7 @@ public class PartTimeStaff extends Employee {
     }
     
     public String toString() {
-        return super.toString() + "\nTitle: " + this.title;
+        return super.toString() + "\nTitle: " + this.title + "\n";
     }
 
     /**

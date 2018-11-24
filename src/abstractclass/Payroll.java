@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package abstractclass;
+//package abstractclass;
 import java.util.ArrayList;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,10 +18,7 @@ import java.io.IOException;
 public class Payroll {
     private ArrayList<Employee> staffList = new ArrayList<>();
     
-    public Payroll(Employee a, Employee b) {
-        staffList.add(a);
-        staffList.add(b);
-    }
+    public Payroll() {}
     
     // Loop through staffList and print employee information
     public void listAllEmployee() {
@@ -42,7 +39,11 @@ public class Payroll {
     // Loop through staffList and print employee paystubs
     public void printAllPayStubs() {
         for (Employee e : staffList) {
-            e.printPayStub();
+            if (e instanceof FullTimeStaff) {
+                ((FullTimeStaff)e).printPayStub();
+            } else {
+                ((PartTimeStaff)e).printPayStub();
+            }
         }
     }
     
@@ -82,8 +83,7 @@ public class Payroll {
     }
 
     // Read employee information from file
-    public ArrayList<Employee> loadStaffList(String fileName) {
-        ArrayList<Employee> employees = new ArrayList<>();
+    public void loadStaffList(String fileName) {
 
         try(BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             while (true) {
@@ -101,20 +101,20 @@ public class Payroll {
                     title = br.readLine().split(": ")[1];
                     emNum = br.readLine().split(": ")[1];
                     name = br.readLine().split(": ")[1];
-                    employees.add(new FullTimeStaff(emNum, name.split(" ")[0], name.split(" ")[1], salary, 20f, title));
+                    staffList.add(new FullTimeStaff(emNum, name.split(" ")[0], name.split(" ")[1], salary, 20f, title));
                 } else {
                     hours = Float.parseFloat(br.readLine().split(": ")[1]);
                     hRate = Double.parseDouble(br.readLine().split(": ")[1]);
                     title = br.readLine().split(": ")[1];
                     emNum = br.readLine().split(": ")[1];
                     name = br.readLine().split(": ")[1]; 
-                    employees.add(new PartTimeStaff(emNum, name.split(" ")[0], name.split(" ")[1], 25f, 18.0, title));
+                    staffList.add(new PartTimeStaff(emNum, name.split(" ")[0], name.split(" ")[1], 25f, 18.0, title));
                 }
                 // Empty readline to account for empty space between each employee data
                 br.readLine();
             }
         } catch(Exception e) {
-            return employees;
+            System.out.println("Added all employees!");
         }
     }
 
